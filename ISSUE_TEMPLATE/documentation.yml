@@ -1,0 +1,15 @@
+name: 📝 Documentation Update
+description: Report missing, unclear, or incorrect documentation
+labels: [documentation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page or Section
+      placeholder: "docs/setup.md"
+  - type: textarea
+    id: details
+    attributes:
+      label: Describe the Issue
+      placeholder: "The setup instructions for X are missing..."
+      description: Be as detailed as possible.
