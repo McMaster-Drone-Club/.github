@@ -1,0 +1,33 @@
+name: ✨ Feature Request
+description: Suggest a new feature or improvement
+labels: [enhancement]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: "Add dark mode support..."
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this feature useful?
+      placeholder: "This would help users..."
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe how you imagine it working
+      placeholder: "Maybe a toggle in settings..."
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Have you considered other approaches?
+  - type: input
+    id: related
+    attributes:
+      label: Related Issues
+      placeholder: "#123, #456"
