@@ -53,9 +53,8 @@ template = f"""# Weekly Meeting Notes — {today}
 
 ## For AI To Research
 Write items here that AI should research and provide answers for.
-Example:
-- Research best cameras for ML drones
-- Research how to automate precision landing AI pipeline
+
+- 
 """
 
 os.makedirs("original-notes", exist_ok=True)
