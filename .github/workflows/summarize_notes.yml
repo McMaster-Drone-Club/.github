@@ -2,17 +2,18 @@ name: Summarize Weekly Meeting Notes
 
 on:
   schedule:
-    - cron: "0 13 * * 3"  # Wednesday 8am EST
+    - cron: "0 13 * * 3"   # Wednesday 8 AM EST (13:00 UTC)
   workflow_dispatch:
 
 jobs:
-  summarize:
+  summarize_notes:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -22,15 +23,15 @@ jobs:
       - name: Install Dependencies
         run: pip install requests
 
-      - name: Run Summarizer
+      - name: Run AI Summarizer
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/summarize_meeting.py
 
-      - name: Commit Summary
+      - name: Commit Summary Notes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add documentation/meetings/summaries/
-          git commit -m "Auto-create summary"
+          git add ai-notes/
+          git commit -m "Auto-create AI meeting summary" || echo "No changes to commit"
           git push origin main
